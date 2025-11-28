@@ -27,6 +27,34 @@ const finalScoreEl = document.getElementById('finalScore');
 const keys = new Set();
 document.addEventListener('keydown', e => keys.add(e.code));
 document.addEventListener('keyup', e => keys.delete(e.code));
+
+
+const leftBtn = document.getElementById('leftBtn');
+const rightBtn = document.getElementById('rightBtn');
+const jumpBtn = document.getElementById('jumpBtn');
+const attackBtn = document.getElementById('attackBtn');
+
+if (leftBtn) {
+  leftBtn.addEventListener('touchstart', e => { e.preventDefault(); keys.add('ArrowLeft'); }, { passive: false });
+  leftBtn.addEventListener('touchend', e => { e.preventDefault(); keys.delete('ArrowLeft'); }, { passive: false });
+  leftBtn.addEventListener('touchcancel', e => { e.preventDefault(); keys.delete('ArrowLeft'); }, { passive: false });
+}
+if (rightBtn) {
+  rightBtn.addEventListener('touchstart', e => { e.preventDefault(); keys.add('ArrowRight'); }, { passive: false });
+  rightBtn.addEventListener('touchend', e => { e.preventDefault(); keys.delete('ArrowRight'); }, { passive: false });
+  rightBtn.addEventListener('touchcancel', e => { e.preventDefault(); keys.delete('ArrowRight'); }, { passive: false });
+}
+if (jumpBtn) {
+  jumpBtn.addEventListener('touchstart', e => { e.preventDefault(); keys.add('ArrowUp'); }, { passive: false });
+  jumpBtn.addEventListener('touchend', e => { e.preventDefault(); keys.delete('ArrowUp'); }, { passive: false });
+  jumpBtn.addEventListener('touchcancel', e => { e.preventDefault(); keys.delete('ArrowUp'); }, { passive: false });
+}
+if (attackBtn) {
+  attackBtn.addEventListener('touchstart', e => { e.preventDefault(); keys.add('KeyX'); }, { passive: false });
+  attackBtn.addEventListener('touchend', e => { e.preventDefault(); keys.delete('KeyX'); }, { passive: false });
+  attackBtn.addEventListener('touchcancel', e => { e.preventDefault(); keys.delete('KeyX'); }, { passive: false });
+}
+
 function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
 function rand(a, b) { return a + Math.random() * (b - a); }
 function now() { return performance.now(); }

@@ -1,6 +1,10 @@
-html, body {
+html,
+body {
   height: 100%;
+  overflow: hidden;
+  touch-action: none;
 }
+
 body {
   margin: 0;
   background: radial-gradient(ellipse at center, #0a0f1f 0%, #050814 70%, #03050b 100%);
@@ -10,11 +14,17 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 #game {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  width: 960px;
+  height: 540px;
+  max-width: 100vw;
+  max-height: calc(100vh - 100px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   background: #0b132b;
 }
+
 .overlay {
   position: fixed;
   top: 0;
@@ -30,15 +40,20 @@ body {
   backdrop-filter: blur(4px);
   z-index: 10;
 }
+
 .overlay.hidden {
   display: none;
 }
-.overlay h1, .overlay h2 {
+
+.overlay h1,
+.overlay h2 {
   margin: 0 0 8px;
 }
+
 .overlay p {
   margin: 0 0 12px;
 }
+
 .overlay button {
   padding: 10px 16px;
   border: none;
@@ -48,9 +63,11 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+
 .overlay button:hover {
   background: #2c5282;
 }
+
 .hud {
   position: fixed;
   top: 10px;
@@ -60,11 +77,82 @@ body {
   align-items: center;
   z-index: 5;
 }
+
 .stat {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   padding: 6px 10px;
   border-radius: 8px;
 }
+
 @media (max-width: 768px) {
-  #game { width: 96vw; height: 54vw; }
+  #game {
+    width: 100vw;
+    height: 56.25vw;
+    max-height: calc(100vh - 120px);
+    border-radius: 0;
+  }
+
+  .controls {
+    display: flex;
+  }
+
+  #leftBtn {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 65px;
+    height: 65px;
+  }
+
+  #jumpBtn {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 90px;
+    width: 65px;
+    height: 65px;
+  }
+
+  #rightBtn {
+    position: fixed;
+    left: 100px;
+    bottom: 20px;
+    width: 65px;
+    height: 65px;
+  }
+
+  #attackBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 75px;
+    height: 75px;
+    font-size: 28px;
+  }
+}
+
+.controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  gap: 15px;
+  z-index: 20;
+}
+
+.controls button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
 }
