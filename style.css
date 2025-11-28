@@ -84,53 +84,6 @@ body {
   border-radius: 8px;
 }
 
-@media (max-width: 768px) {
-  #game {
-    width: 100vw;
-    height: 56.25vw;
-    max-height: calc(100vh - 120px);
-    border-radius: 0;
-  }
-
-  .controls {
-    display: flex;
-  }
-
-  #leftBtn {
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
-    width: 65px;
-    height: 65px;
-  }
-
-  #jumpBtn {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 90px;
-    width: 65px;
-    height: 65px;
-  }
-
-  #rightBtn {
-    position: fixed;
-    left: 100px;
-    bottom: 20px;
-    width: 65px;
-    height: 65px;
-  }
-
-  #attackBtn {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 75px;
-    height: 75px;
-    font-size: 28px;
-  }
-}
-
 .controls {
   position: fixed;
   bottom: 20px;
@@ -155,4 +108,57 @@ body {
   justify-content: center;
   user-select: none;
   -webkit-user-select: none;
+  transition: all 0.15s ease;
+}
+
+.controls button:active {
+  transform: scale(0.9);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  #game {
+    width: 100vw;
+    height: 56.25vw;
+    max-height: calc(100vh - 120px);
+    border-radius: 0;
+  }
+
+  .controls {
+    display: flex !important;
+  }
+
+  #attackBtn {
+    position: fixed;
+    left: 20px;
+    bottom: 85px;
+    width: 85px;
+    height: 85px;
+    font-size: 36px;
+  }
+
+  #leftBtn {
+    position: fixed;
+    right: 100px;
+    bottom: 85px;
+    width: 70px;
+    height: 70px;
+  }
+
+  #jumpBtn {
+    position: fixed;
+    right: 60px;
+    bottom: 160px;
+    width: 70px;
+    height: 70px;
+  }
+
+  #rightBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 85px;
+    width: 70px;
+    height: 70px;
+  }
 }
